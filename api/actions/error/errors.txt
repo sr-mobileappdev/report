@@ -1,0 +1,13 @@
+html.js
+1. socket hang up
+https://stackoverflow.com/questions/16995184/nodejs-what-does-socket-hang-up-actually-mean
+
+2. Client network socket disconnected before secure TLS connection was established
+
+3. read ECONNRESET
+
+
+cloudwatch.js
+1. Expected params.sequenceToken to be a string
+https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html
+https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html
