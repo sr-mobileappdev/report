@@ -1,12 +1,12 @@
 'use strict'
 
-module.exports = async (awsLogFunc, params, nextTokenName, processResults) => {
+module.exports = async (awsLogFunc, params, nextTokenName, processResults, extraResult) => {
   try {
-    let finalResults
+    let finalResults, resultCount;
 
     // loop over log streams for the log group OR log events for the log stream
     do {
-      const awsLogFuncResult = await awsLogFunc(params)
+      const awsLogFuncResult = await awsLogFunc(params)      
       const nextToken = awsLogFuncResult[nextTokenName]
 
       const nextTokenIsUnique = Boolean(
@@ -20,7 +20,6 @@ module.exports = async (awsLogFunc, params, nextTokenName, processResults) => {
         &&
         !(nextToken === params[nextTokenName])
       )
-
       finalResults = await processResults(awsLogFuncResult)
 
       if(nextTokenIsUnique)
@@ -28,8 +27,7 @@ module.exports = async (awsLogFunc, params, nextTokenName, processResults) => {
       else
         delete params[nextTokenName]
     } while (params[nextTokenName])
-
-    return finalResults
+    return finalResults;
   } catch (exception) {
     throw new Error(`\n[worker] loop\n${exception}\n`)
   }
