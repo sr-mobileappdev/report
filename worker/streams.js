@@ -41,7 +41,9 @@ async function perBatchOf50Streams (logStreams) {
 
     if(logStreamName === 'master_log'){
       // loop over stream events
-      await loop(getLogEvents, params, 'nextForwardToken', processEvents)
+      const resultCount = await loop(getLogEvents, params, 'nextForwardToken', processEvents, true)
+
+      batchResults.resultCount = resultCount;
 // console.log(eventResults)
     }
     else if(streamType === 'bjc')
