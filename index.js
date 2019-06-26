@@ -1,18 +1,4 @@
 'use strict';
-
-/* During spawn better debug message */
-(function() {
-  const childProcess = require("child_process");
-  const oldSpawn = childProcess.spawn;
-  function mySpawn() {
-      console.log('spawn called');
-      console.log(arguments);
-      var result = oldSpawn.apply(this, arguments);
-      return result;
-  }
-  childProcess.spawn = mySpawn;
-})();
-
 // node --max-old-space-size=16000 . job '11 17 2'
 
 const spawn = require('child_process').spawn;
