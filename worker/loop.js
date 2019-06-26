@@ -1,6 +1,6 @@
 'use strict'
 
-module.exports = async (awsLogFunc, params, nextTokenName, processResults, extraResult) => {
+module.exports = async (awsLogFunc, params, nextTokenName, processResults) => {
   try {
     let finalResults, resultCount;
 
