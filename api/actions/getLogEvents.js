@@ -9,7 +9,7 @@ const wrapper = async (params) => {
     const data = await getLogEvents(params)
     action.resolve(data)
   } catch (exception) {
-    action.reject(`[getLogEvents] ${exception.message}`);
+    action.reject(`[getLogEvents] ${exception.message}`)
   }
 }
 

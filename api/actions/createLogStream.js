@@ -9,7 +9,7 @@ const wrapper = async (params) => {
     await createLogStream(params)
     action.resolve()
   } catch (exception) {
-    action.reject(`[createLogStream] ${exception.message}`);
+    action.reject(`[createLogStream] ${exception.message}`)
   }
 }
 
