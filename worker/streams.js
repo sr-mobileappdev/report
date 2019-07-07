@@ -43,7 +43,13 @@ async function perBatchOf50Streams (logStreams) {
 
       batchResults.resultCount = resultCount
       // console.log(eventResults)
-    } else if (streamType === 'bjc') { ++batchResults.numbBjcStreams } else if (streamType === 'log') { ++batchResults.numbLogStreams } else if (streamType === 'invalid') { ++batchResults.numbInvalidStreams } else if (streamType === 'error') {
+    } else if (streamType === 'bjc') {
+      ++batchResults.numbBjcStreams
+    } else if (streamType === 'log') {
+      ++batchResults.numbLogStreams
+    } else if (streamType === 'invalid') {
+      ++batchResults.numbInvalidStreams
+    } else if (streamType === 'error') {
       ++batchResults.numbErrorStreams
       // loop over stream events
       await loop(getLogEvents, params, 'nextForwardToken', processEvents)

@@ -23,6 +23,7 @@ module.exports = async (awsLogFunc, params, nextTokenName, processResults) => {
     } while (params[nextTokenName])
     return finalResults
   } catch (exception) {
-    throw new Error(`\n[worker] loop\n${exception}\n`)
+    // throw new Error(`\n[worker] loop\n${exception}\n`)
+    console.error(`\n[worker] loop\n${exception}\n`)
   }
 }
